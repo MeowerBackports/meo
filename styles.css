@@ -424,11 +424,10 @@ img.embed {
     max-height: 100px;
     overflow-x: auto;
     overflow-y: visible;
-    margin: var(--text-margin) 0;
 
     display: flex;
     text-wrap: nowrap;
-    gap: 10px;
+    margin: 10px;
     align-items: center;
     height: 42px;
     white-space: nowrap;
@@ -792,9 +791,11 @@ img.embed {
 .message-input {
     padding: 1em;
     flex: 1;
-    margin: 0;
+    margin-left: 2px;
+    margin-right: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     overflow-y: hidden;
-
 }
 
 .message-input:first-child {
@@ -821,6 +822,8 @@ img.embed {
 .message-tool {
     padding: 0;
     width: 50px;
+    margin-left: 0;
+    margin-right: 5px;
     display: flex;
     align-items: center;
     justify-content: center;

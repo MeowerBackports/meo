@@ -1108,7 +1108,7 @@ function loadreplyv(item) {
         }
     }
 
-    replycontainer.innerHTML = `<p class="reply-u" style='font-weight:bold;margin: 10px 0 10px 0;'>${escapeHTML(user)}</p><p class="reply-p" style='margin: 10px 0 10px 0;'>${content ? escapeHTML(content) : '<i>Deleted post</i>'}</p>`;
+    replycontainer.innerHTML = `<p class="reply-u" style='font-weight:bold;margin: 10px 5px 10px 0;'>${escapeHTML(user)}</p><p class="reply-p" style='margin: 10px 0 10px 0;'>${content ? escapeHTML(content) : '<i>Deleted post</i>'}</p>`;
 
     const full = document.createElement("div");
     full.classList.add("reply-outer");
