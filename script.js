@@ -14,6 +14,20 @@
 let end = false;
 let page = "load";
 const sidediv = document.querySelectorAll(".side");
+
+// Function to escape HTML special characters
+function escapeHTML(str) {
+    return str.replace(/[&<>'"]/g, function(tag) {
+        const charsToReplace = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;'
+        };
+        return charsToReplace[tag] || tag;
+    });
+}
     sidediv.forEach(function(sidediv) {
         sidediv.classList.add("hidden");
     });
@@ -264,7 +278,7 @@ function main() {
             if (!(postOrigin in postCache)) postCache[postOrigin] = [];
             postCache[postOrigin].unshift(post);
             if (page === postOrigin) {
-                loadpost(Object.assign(structuredClone(post), { _top: true }));
+                loadpost(Object.assign(JSON.parse(JSON.stringify(post)), { _top: true }));
             } else {
                 if (postCache[postOrigin].length > 25) postCache[postOrigin].length = 25;
             }
@@ -783,8 +797,12 @@ function loadpost(p) {
     const emojiRgx = /^(?:(?!\d)(?:\p{Emoji}|[\u200d\ufe0f\u{E0061}-\u{E007A}\u{E007F}]))+$/u;
     const meowerRgx = /^<:[a-zA-Z0-9]{24}>$/g;
     const discordRgx = /^<(a)?:\w+:\d+>$/gi;
-    if (emojiRgx.test(content) || (meowerRgx.test(content) && p.emojis.length) || discordRgx.test(content)) {
+    if (content && (emojiRgx.test(content) || (meowerRgx.test(content) && p.emojis.length) || discordRgx.test(content))) {
         postContentText.classList.add('big');
+    } else if (content === "" && p.attachments.length === 0 && (emojiRgx.test(content) || (meowerRgx.test(content) && p.emojis.length) || discordRgx.test(content))) {
+        postContentText.classList.add('big');
+    } else {
+        postContentText.classList.add('notbig');
     }
     
     if (content) {

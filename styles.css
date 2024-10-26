@@ -1,5 +1,6 @@
 html {
     background: var(--background) !important;
+    background-color: var(--background) !important; /* iOS 14.2 supports backgroundColor */
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -16,8 +17,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: block !important;
+    display: block !important; /* Keep this if necessary for your layout */
 }
 
 input {
@@ -1034,7 +1034,7 @@ img.embed {
 /* make it align at the top */
 
 .settings-button {
-    padding: var(--button-padding);
+    padding: 12px;
     text-align: left;
     display: flex;
     align-items: center;
@@ -1043,7 +1043,7 @@ img.embed {
 
 .navigation-button {
     border-radius: 100px;
-    padding: var(--button-padding);
+    padding: 12px;
     text-align: left;
     display: flex;
     align-items: center;
@@ -1051,7 +1051,7 @@ img.embed {
 }
 
 .nav-button-label {
-    padding: 10px var(--button-padding);
+    padding: 10px 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     height: 100%;
@@ -1196,7 +1196,7 @@ possible future styling
 .modal-close {
     background-color: var(--modal-button-color);
     width: 100%;
-    padding: var(--button-padding);
+    padding: 12px;
     border-radius: var(--border-radius);
     align-self: end;
     transition: var(--transition);
@@ -1214,7 +1214,7 @@ possible future styling
 .modal-back-btn {
     background-color: var(--modal-button-color);
     width: 100%;
-    padding: var(--button-padding);
+    padding: 12px;
     border-radius: var(--border-radius);
     align-self: end;
     transition: var(--transition);
@@ -1237,7 +1237,7 @@ possible future styling
 .modal-button {
     background-color: var(--modal-button-color);
     width: 100%;
-    padding: var(--button-padding);
+    padding: 12px;
     border-radius: var(--border-radius);
     margin-bottom: var(--margin);
     text-align: left;
@@ -1268,7 +1268,7 @@ possible future styling
 .modal-select {
     background-color: var(--modal-button-color);
     width: 100%;
-    padding: var(--button-padding);
+    padding: 12px;
     border-radius: var(--border-radius);
     margin-top: var(--margin);
     margin-bottom: var(--margin);
@@ -1312,7 +1312,7 @@ possible future styling
 .mdl-txt {
     background-color: var(--modal-button-color);
     width: 100%;
-    padding: var(--button-padding);
+    padding: 12px;
     border-radius: var(--border-radius);
     margin: var(--margin) 0;
     text-align: left;
@@ -1331,7 +1331,7 @@ possible future styling
     background-color: var(--modal-button-color);
     flex: 1;
     width: 100%;
-    padding: var(--button-padding);
+    padding: 12px;
     border-radius: var(--border-radius);
     margin: var(--margin) 0;
     text-align: left;
@@ -1359,7 +1359,7 @@ possible future styling
 
 .mdl-file.mdl-file::file-selector-button {
     background-color: var(--modal-button-color);
-    padding: var(--button-padding);
+    padding: 12px;
     border-radius: var(--border-radius);
     transition: var(--transition);
     color: var(--color);
@@ -1739,9 +1739,9 @@ possible future styling
     align-items: center;
 }
 
-.emoji {
-    height: 1lh;
-    aspect-ratio: 1 / 1;
+.notbig > p > .emoji {
+    height: 1em;
+    width: 1em; /* Maintain aspect ratio */
     object-fit: contain;
     vertical-align: bottom;
 }
@@ -1975,7 +1975,7 @@ possible future styling
 }
 
 .qbtn {
-    padding: var(--button-padding);
+    padding: 12px;
     text-align: left;
     display: flex;
     align-items: center;
@@ -1986,12 +1986,12 @@ possible future styling
     width: 100%;
     display: flex;
     align-items: center;
-    padding: var(--button-padding);
+    padding: 12px;
 }
 
 .ubtnsb {
     margin-right: 5px;
-    padding: var(--button-padding);
+    padding: 12px;
 }
 
 .start-users-online {
@@ -2050,7 +2050,7 @@ possible future styling
 }
 
 .searchitem {
-    padding: 10px var(--button-padding);
+    padding: 10px 12px;
     background-color: var(--modal-button-color);
     border-radius: var(--border-radius);
     margin-bottom: 5px;
@@ -2076,7 +2076,7 @@ possible future styling
 }
 
 .gcname {
-    padding: 10px var(--button-padding);
+    padding: 10px 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     height: 100%;
@@ -2150,7 +2150,8 @@ possible future styling
 }
 
 .gcbtn {
-    padding: calc(var(--button-padding)/2) var(--button-padding);
+    padding: 6px 12px;
+    min-height: 48px; /* Ensure buttons have a minimum width */
 }
 
 .gctitle {
@@ -2208,7 +2209,7 @@ possible future styling
     color: var(--color);
     border: none;
     border-radius: var(--button-radius);
-    padding: var(--button-padding);
+    padding: 12px;
 }
 
 .settings-section-outer .stg-section:first-child {
@@ -2228,7 +2229,7 @@ possible future styling
 }
 
 .settings-button-in {
-    padding: 10px var(--button-padding);
+    padding: 10px 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
@@ -2322,7 +2323,7 @@ possible future styling
     margin-bottom: var(--button-margin);
     border-radius: 100px;
     background-color: var(--accent-color);
-    padding: calc(var(--button-padding)/2) var(--button-padding);
+    padding: calc(var(--button-padding)/2) 12px;
 }
 
 .plugins {
@@ -2400,7 +2401,7 @@ possible future styling
 }
 
 .cstpgbt {
-    padding: 10px var(--button-padding);
+    padding: 10px 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
@@ -2477,7 +2478,7 @@ possible future styling
 }
 
 .blockeduser, .blockedword {
-    padding: 10px var(--button-padding);
+    padding: 10px 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
@@ -2529,7 +2530,7 @@ possible future styling
 }
 
 .language {
-    padding: 10px var(--button-padding);
+    padding: 10px 12px;
     box-sizing: border-box;
     background: var(--accent-color);
     border: 3px solid var(--accent-color);
@@ -2784,7 +2785,7 @@ possible future styling
 
 .member {
     width: 100%;
-    padding: var(--button-padding);
+    padding: 12px;
     box-sizing: border-box;
     font-size: 13px;
     background: var(--modal-button-color);
@@ -2816,7 +2817,7 @@ possible future styling
 
 .member-in {
     width: 100%;
-    padding: var(--button-padding);
+    padding: 12px;
     box-sizing: border-box;
     font-size: 13px;
     background: var(--modal-button-color);
@@ -2890,7 +2891,7 @@ possible future styling
 }
 
 .ow-btn {
-    padding: 10px var(--button-padding);
+    padding: 10px 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
@@ -2975,7 +2976,7 @@ possible future styling
     color: var(--color);
     border: none;
     border-radius: var(--button-radius);
-    padding: var(--button-padding);
+    padding: 12px;
     display: flex;
     flex-direction: column;
     gap: 10px;
