@@ -1146,13 +1146,20 @@ possible future styling
 }
 
 .nav-top {
-    position: absolute;
-    top: 0;
+    position: relative;
+    top: 0; /* Adjust this value as needed to move it down */
     display: flex;
     flex-direction: column;
-    gap: var(--button-margin);
     margin-top: 10px;
     width: 70%;
+}
+
+.nav-button-bottom {
+    position: relative;
+}
+
+.nav-top > * + * {
+    margin-top: var(--button-margin);
 }
 
 .groupheader {
@@ -2210,6 +2217,7 @@ possible future styling
     border: none;
     border-radius: var(--button-radius);
     padding: 12px;
+    margin-bottom: 5px;
 }
 
 .settings-section-outer .stg-section:first-child {

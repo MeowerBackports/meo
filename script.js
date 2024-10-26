@@ -1471,9 +1471,9 @@ function sidebars() {
     `;
     
     let navlist = `
-    <input type="button" class="navigation-button button" id="explore" value="${lang().page_explore}" onclick="loadexplore();" aria-label="explore" tabindex="0">
-    <input type="button" class="navigation-button button" id="inbox" value="${lang().page_inbox}" onclick="loadchat('inbox')" aria-label="inbox" tabindex="0">
-    <input type="button" class="navigation-button button" id="settings" value="${lang().page_settings}" onclick="loadstgs()" aria-label="settings" tabindex="0">
+    <input type="button" class="navigation-button button nav-button-bottom" id="explore" value="${lang().page_explore}" onclick="loadexplore();" aria-label="explore" tabindex="0">
+    <input type="button" class="navigation-button button nav-button-bottom" id="inbox" value="${lang().page_inbox}" onclick="loadchat('inbox')" aria-label="inbox" tabindex="0">
+    <input type="button" class="navigation-button button nav-button-bottom" id="settings" value="${lang().page_settings}" onclick="loadstgs()" aria-label="settings" tabindex="0">
     <button type='button' class='user-area button' id='profile' onclick='openUsrModal("${localStorage.getItem("username")}")' aria-label="profile" tabindex="0">
         <div class="avatar-small" id="uav" alt="Avatar"></div>
         <span class="nav-button-label">${localStorage.getItem("username")}</span></div>
@@ -1574,7 +1574,8 @@ function renderChats() {
         chatIconElem.setAttribute("alt", "Avatar");
         if (chat.type === 0) {
             if (chat.icon) {
-                chatIconElem.style.backgroundImage = `url(https://uploads.meower.org/icons/${chat.icon})`;
+                const encodedIcon = encodeURI(chat.icon);
+                chatIconElem.style.backgroundImage = `url("https://uploads.meower.org/icons/${encodedIcon}")`;
             } else {
                 chatIconElem.style.backgroundImage = `url(images/GC.svg)`;
             }
