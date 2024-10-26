@@ -1,5 +1,4 @@
 # meo backports
 This repo contains backports for meo to older browsers.
 
-## About this branch
-This branch includes patches to make meo work on iOS 14.2 and later. Anything older is untested.
+Do not use or modify the main branch, it is an exact copy of meo with no modifications. Instead, use a branch
