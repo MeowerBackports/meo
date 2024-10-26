@@ -1,5 +1,4 @@
-# Imagine a Meower client...
+# meo backports
+This repo contains backports for meo to older browsers.
 
-![meo banner](https://raw.githubusercontent.com/3r1s-s/3r1s-s.github.io/main/images/github/meo-banner.png)
-
-Visit https://eris.pages.dev/meo/about for more info!
+Do not use or modify the main branch, it is an exact copy of meo with no modifications. Instead, use a branch
