@@ -39,8 +39,7 @@ function escapeHTML(content) {
 function erimd(content,isProfile) {
     const fixProfile = isProfile ? "parent." : "";
     const text = content
-        .replace(/(?:^|(?<=\s|<p>))@([\w-]+)(?![^<]*?<\/code>)/g, `<span id="username" class="attachment" onclick="${fixProfile}openUsrModal(\'$1\')">@$1</span>`)
-        .replace(/&lt;:(\w+):(\d+)&gt;/g, '<img src="https://cdn.discordapp.com/emojis/$2.webp?size=96&quality=lossless" alt="$1" title="$1" class="emoji">')
+        .replace(/(^|\s|<p>)@([\w-]+)(?![^<]*?<\/code>)/g, (match, p1, p2) => `${p1}<span id="username" class="attachment" onclick="${fixProfile}openUsrModal(\'${p2}\')">@${p2}</span>`)        .replace(/&lt;:(\w+):(\d+)&gt;/g, '<img src="https://cdn.discordapp.com/emojis/$2.webp?size=96&quality=lossless" alt="$1" title="$1" class="emoji">')
         .replace(/&lt;a:(\w+):(\d+)&gt;/g, '<img src="https://cdn.discordapp.com/emojis/$2.gif?size=96&quality=lossless" alt="$1" title="$1" class="emoji">')
         .replace(/<a\s+href="https:\/\/eris\.pages\.dev\/meo\/profile\?u=([\w-]+)".*?>(.*?)<\/a>/g, `<span id="username" class="attachment" onclick="${fixProfile}openUsrModal(\'$1\')">@$1</span>`)
         .replace(/<a\s+href="https:\/\/eris\.pages\.dev\/meo\?gc=([\w-]+)".*?>(.*?)<\/a>/g, `<span id="username" class="attachment" onclick="${fixProfile}loadchat(\'$1\')">#$1</span>`)
@@ -670,7 +669,7 @@ function oldMarkdown(content) {
         .replace(/&lt;a:(\w+):(\d+)&gt;/g, '<img src="https://cdn.discordapp.com/emojis/$2.gif?size=96&quality=lossless" alt="$1" width="16px" class="emoji">')
         .replace(/\n/g, '<br>');
 
-    if (/^(?:(?!\d)(?:\p{Emoji}|[\u200d\ufe0f\u{E0061}-\u{E007A}\u{E007F}]))+$/u.test(content)) {
+    if (/^(?:(?!\d)[\u203C-\u3299\u1F000-\u1F6FF\u1F900-\u1F9FF\u200D\uFE0F\uE0061-\uE007A\uE007F])+$/u.test(content)) {
         textContent = '<span class="big">' + textContent + '</span>';
     }
 

@@ -9,8 +9,6 @@ This branch contains fixes to make meo work on Firefox 52 and later. This branch
 ## Known Issues
 This branch is tested on Firefox 52 on Windows XP and Asus Transformer Pad TF101. The following features are known to not work:
 
-- Uploading photos and videos from the camera roll or taking a photo/video on the website does not work. Uploading from the Files app works fine
-- Some uploaded files do not display correctly. This is a bug with the browser and not the backport.
-- Profile pictures are only shown in the main chat view. They are not shown on the home page, in settings etc.
-- Chat Icons do not appear. A line with the chat colour is shown instead.
-- Some buttons are not styled correctly. There is nothing wrong with the functionality, just the appearance.
+- There is no margin between anything, will fix at some point
+- Uploads do not load correctly, unsure of the issue
+- Profile Pictures and Chat Icons do not load because Firefox 52 does not support webp
